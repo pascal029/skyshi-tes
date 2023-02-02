@@ -15,6 +15,10 @@ const errorHandler = (err, req, res, next) => {
     code = 400;
     message = `title cannot be null`;
     status = "Bad Request";
+  } else if (err.name == "todo_not_found") {
+    code = 400;
+    message = `Todo with ID ${err.todo_id} Not Found`;
+    status = "Bad Request";
   }
   res.status(code).json({ status, message });
 };
