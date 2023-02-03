@@ -69,7 +69,7 @@ class TodoController {
         ],
       });
 
-      res.status(201).json(data);
+      res.status(201).json({ status: "Success", message: "Success", data });
     } catch (error) {
       next(error);
     }
@@ -77,11 +77,14 @@ class TodoController {
   static async updateTodo(req, res, next) {
     try {
       const { todo_id } = req.params;
-      const { title } = req.body;
+      const { title, is_active } = req.body;
 
-      if (!title) throw { name: "title_missing" };
-
-      await Todo.update({ title }, { where: { todo_id } });
+      if (title) {
+        await Todo.update({ title }, { where: { todo_id } });
+      }
+      if (is_active) {
+        await Todo.update({ is_active }, { where: { todo_id } });
+      }
 
       const exist = await Todo.findByPk(todo_id, {
         attributes: [

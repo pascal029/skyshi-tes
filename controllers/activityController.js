@@ -14,7 +14,7 @@ class ActivityController {
       });
       res
         .status(200)
-        .json({ status: "success", message: "success", data: activities });
+        .json({ status: "Success", message: "Success", data: activities });
     } catch (error) {
       next(error);
     }
@@ -37,7 +37,7 @@ class ActivityController {
 
       res
         .status(200)
-        .json({ status: "success", message: "success", data: activity });
+        .json({ status: "Success", message: "Success", data: activity });
     } catch (error) {
       next(error);
     }
@@ -58,7 +58,7 @@ class ActivityController {
         ],
       });
 
-      res.status(200).json({ status: "success", message: "success", data });
+      res.status(201).json({ status: "Success", message: "Success", data });
     } catch (error) {
       next(error);
     }
@@ -83,7 +83,7 @@ class ActivityController {
 
       res
         .status(200)
-        .json({ status: "Success", message: "success", data: exist });
+        .json({ status: "Success", message: "Success", data: exist });
     } catch (error) {
       next(error);
     }

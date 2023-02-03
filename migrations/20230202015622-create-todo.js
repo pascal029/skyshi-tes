@@ -17,6 +17,7 @@ module.exports = {
       },
       is_active: {
         type: Sequelize.BOOLEAN,
+        defaultValue: true,
       },
       priority: {
         type: Sequelize.STRING,
